@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PBC Capital Advisors LLC | M&A Advisory | Palm Beach Gardens, FL</title>
+<title>PBG Capital Advisors LLC | M&A Advisory | Palm Beach Gardens, FL</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -91,6 +95,10 @@ nav.scrolled {
   font-size: 7.5px; font-weight: 400; letter-spacing: 0.28em;
   text-transform: uppercase; color: var(--steel);
 }
+/* Seal logo images */
+.brand-logo { display:block; height:44px; width:auto; }
+.footer-brand .brand-logo { height:58px; }
+@media (max-width: 600px){ .brand-logo { height:38px; } }
 /* Nav — bars in amber on light background */
 nav .nav-logo-bars span { background: var(--amber); }
 /* Footer — invert for dark background, ivory bars */
@@ -819,6 +827,148 @@ footer {
 }
 
 /* ─────────────────────────────────────────
+   TOMBSTONES / TRACK RECORD
+───────────────────────────────────────── */
+.tomb-card {
+  background: var(--white);
+  border: 1px solid var(--rule-dark);
+  padding: 30px 28px 28px;
+  display: flex; flex-direction: column;
+  min-height: 250px;
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+}
+.tomb-card:hover {
+  box-shadow: 0 14px 44px rgba(15,32,64,0.10);
+  transform: translateY(-3px);
+  border-color: var(--rule);
+}
+.tomb-top {
+  display:flex; align-items:flex-start; justify-content:space-between;
+  margin-bottom: 20px;
+}
+.tomb-icon { font-size: 28px; line-height:1; }
+.tomb-tag {
+  font-family:'DM Mono', monospace;
+  font-size: 9.5px; letter-spacing:0.16em; text-transform:uppercase;
+  color: var(--amber);
+  border: 1px solid var(--rule);
+  padding: 4px 9px; white-space:nowrap;
+}
+.tomb-sector {
+  font-family:'DM Mono', monospace;
+  font-size: 10px; letter-spacing:0.22em; text-transform:uppercase;
+  color: var(--mist); margin-bottom: 7px;
+}
+.tomb-name {
+  font-family:'Playfair Display', serif;
+  font-size: 21px; font-weight:400; color: var(--ink);
+  line-height:1.18; margin-bottom: 18px;
+}
+.tomb-value {
+  font-family:'Playfair Display', serif;
+  font-size: 40px; font-weight:400; color: var(--amber);
+  line-height:1; margin-bottom: 3px;
+}
+.tomb-value-label {
+  font-family:'DM Mono', monospace;
+  font-size: 10px; letter-spacing:0.2em; text-transform:uppercase;
+  color: var(--steel);
+}
+.tomb-desc {
+  font-size: 13px; font-weight:300; line-height:1.6; color: var(--steel);
+  margin-top: auto; padding-top: 16px;
+  border-top: 1px solid var(--rule-dark);
+}
+
+/* Track Record page grid */
+#track-record { padding: 120px 0; background: var(--paper); }
+.tr-header { margin-bottom: 56px; }
+.tr-header p {
+  font-size:16px; font-weight:300; line-height:1.8;
+  color:var(--steel); max-width:560px; margin-top:18px;
+}
+.tomb-grid {
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;
+}
+
+/* QOE highlight band */
+.qoe-band {
+  margin-top: 24px;
+  background: var(--ink);
+  padding: 48px 52px;
+  display:grid; grid-template-columns: auto 1fr; gap:44px; align-items:center;
+  position:relative; overflow:hidden;
+}
+.qoe-num {
+  font-family:'Playfair Display', serif;
+  font-size: 88px; font-weight:400; color: var(--amber-bright);
+  line-height:0.9;
+}
+.qoe-text h3 {
+  font-family:'Playfair Display', serif;
+  font-size: 26px; font-weight:400; color:var(--white);
+  line-height:1.3; margin-bottom:10px;
+}
+.qoe-text p {
+  font-size:14px; font-weight:300; line-height:1.7;
+  color: rgba(255,255,255,0.6); max-width:520px;
+}
+
+/* Home page carousel */
+#deals-home {
+  padding: 100px 0;
+  background: var(--paper);
+  border-top: 4px solid var(--amber);
+}
+.deals-head {
+  display:flex; align-items:flex-end; justify-content:space-between;
+  gap:32px; margin-bottom:44px;
+}
+.carousel-controls { display:flex; gap:10px; flex-shrink:0; }
+.car-btn {
+  width:46px; height:46px;
+  background: var(--white);
+  border: 1px solid var(--rule-dark);
+  color: var(--ink); font-size:16px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.car-btn:hover { background: var(--amber); color: var(--white); border-color: var(--amber); }
+.deals-viewport { overflow: hidden; }
+.deals-track {
+  display:flex; gap:24px;
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform;
+}
+.deals-track > .tomb-card { flex: 0 0 auto; }
+.deals-dots {
+  display:flex; gap:8px; justify-content:center; margin-top:36px;
+}
+.deal-dot {
+  width:8px; height:8px; border-radius:50%; padding:0;
+  border:none; cursor:pointer;
+  background: var(--paper-deep);
+  transition: background 0.2s, transform 0.2s;
+}
+.deal-dot:hover { background: var(--mist); }
+.deal-dot.active { background: var(--amber); transform: scale(1.3); }
+.tr-note {
+  font-size:12px; font-weight:300; line-height:1.6;
+  color: var(--mist); text-align:center; max-width:720px;
+  margin: 28px auto 0;
+}
+
+@media (max-width:1024px) {
+  .tomb-grid { grid-template-columns:repeat(2, 1fr); }
+}
+@media (max-width:700px) {
+  .tomb-grid { grid-template-columns:1fr; }
+  .qoe-band { grid-template-columns:1fr; gap:20px; padding:36px 30px; text-align:left; }
+  .qoe-num { font-size:64px; }
+  .deals-head { flex-direction:column; align-items:flex-start; gap:20px; }
+}
+
+/* ─────────────────────────────────────────
    ANIMATIONS
 ───────────────────────────────────────── */
 @keyframes riseUp {
@@ -858,17 +1008,14 @@ footer {
 <!-- ═══════════ NAV ═══════════ -->
 <nav id="navbar">
   <a class="nav-brand" onclick="showPage('home')">
-    <div class="nav-logo-stacked">
-      <div class="nav-logo-pbc">PBC</div>
-      <div class="nav-logo-rule"></div>
-      <div class="nav-logo-sub">Capital Advisors LLC</div>
-    </div>
+    <img class="brand-logo" src="PBG_Logo_Primary_Light_Transparent.png" alt="PBG Capital Advisors">
   </a>
   <div class="nav-links">
     <a onclick="showPage('about')" data-page="about">About</a>
     <a onclick="showPage('services')" data-page="services">Services</a>
     <a onclick="showPage('process')" data-page="process">Process</a>
     <a onclick="showPage('sectors')" data-page="sectors">Sectors</a>
+    <a onclick="showPage('track-record')" data-page="track-record">Track Record</a>
     <a onclick="showPage('team')" data-page="team">Our Team</a>
     <a onclick="showPage('contact')" data-page="contact" class="nav-cta">Contact Us</a>
   </div>
@@ -891,7 +1038,7 @@ footer {
     </h1>
 
     <p class="hero-sub">
-      PBC Capital Advisors delivers CPA-led M&A advisory for middle-market businesses.
+      PBG Capital Advisors delivers CPA-led M&A advisory for middle-market businesses.
       Backed by 25 years of experience spanning Big Four accounting, Fortune 500 corporate
       development, and global private equity — we know how deals get made.
     </p>
@@ -919,6 +1066,77 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- ─── HOME: SELECTED TRANSACTIONS CAROUSEL ─── -->
+<section id="deals-home">
+  <div class="section-wrap">
+    <div class="deals-head reveal">
+      <div>
+        <div class="section-eyebrow"><span>Selected Transactions</span></div>
+        <h2 class="display">Deals Our Team Has <em>Completed</em></h2>
+      </div>
+      <div class="carousel-controls">
+        <button class="car-btn" onclick="moveDeals(-1)" aria-label="Previous transaction">&larr;</button>
+        <button class="car-btn" onclick="moveDeals(1)" aria-label="Next transaction">&rarr;</button>
+      </div>
+    </div>
+
+    <div class="deals-viewport reveal">
+      <div class="deals-track" id="dealsTrack">
+        <div class="tomb-card">
+          <div class="tomb-top"><div class="tomb-icon">📐</div><div class="tomb-tag">Sell-Side</div></div>
+          <div class="tomb-sector">Professional Services</div>
+          <div class="tomb-name">Architectural Firm</div>
+          <div class="tomb-value">$40M</div>
+          <div class="tomb-value-label">Sales</div>
+          <div class="tomb-desc">Top-3 firm in Miami. Sold to a private equity buyer.</div>
+        </div>
+        <div class="tomb-card">
+          <div class="tomb-top"><div class="tomb-icon">🚗</div><div class="tomb-tag">Sell-Side</div></div>
+          <div class="tomb-sector">Automotive Retail</div>
+          <div class="tomb-name">Used-Car Retailer</div>
+          <div class="tomb-value">$1.2B</div>
+          <div class="tomb-value-label">Sales</div>
+          <div class="tomb-desc">Sold to a top-10 private equity firm.</div>
+        </div>
+        <div class="tomb-card">
+          <div class="tomb-top"><div class="tomb-icon">🔧</div><div class="tomb-tag">Sell-Side</div></div>
+          <div class="tomb-sector">Specialty Contracting</div>
+          <div class="tomb-name">Mechanical Contractor</div>
+          <div class="tomb-value">$60M</div>
+          <div class="tomb-value-label">Sales</div>
+          <div class="tomb-desc">Commercial HVAC, electrical &amp; security services firm.</div>
+        </div>
+        <div class="tomb-card">
+          <div class="tomb-top"><div class="tomb-icon">🚆</div><div class="tomb-tag">Buy-Side</div></div>
+          <div class="tomb-sector">Industrials</div>
+          <div class="tomb-name">Rail Car Products</div>
+          <div class="tomb-value">$110M</div>
+          <div class="tomb-value-label">Revenue</div>
+          <div class="tomb-desc">Purchased from a German-based private equity owner.</div>
+        </div>
+        <div class="tomb-card">
+          <div class="tomb-top"><div class="tomb-icon">⚙️</div><div class="tomb-tag">M&amp;A</div></div>
+          <div class="tomb-sector">Advanced Materials</div>
+          <div class="tomb-name">Automotive Components</div>
+          <div class="tomb-value">$310M</div>
+          <div class="tomb-value-label">Revenue</div>
+          <div class="tomb-desc">High-performance materials for the automotive industry.</div>
+        </div>
+        <div class="tomb-card">
+          <div class="tomb-top"><div class="tomb-icon">🌡️</div><div class="tomb-tag">M&amp;A</div></div>
+          <div class="tomb-sector">Building Technology</div>
+          <div class="tomb-name">HVAC Controls</div>
+          <div class="tomb-value">$40M</div>
+          <div class="tomb-value-label">Revenue</div>
+          <div class="tomb-desc">Hotel-room occupancy &amp; energy-efficiency controls.</div>
+        </div>
+      </div>
+    </div>
+    <div class="deals-dots" id="dealsDots"></div>
+    <p class="tr-note">Representative transactions completed by our principals over the course of their careers. <a onclick="showPage('track-record')" style="color:var(--amber);cursor:pointer;text-decoration:none;border-bottom:1px solid var(--rule);">View full track record &rarr;</a></p>
+  </div>
+</section>
 </div>
 
 <!-- ═══════════ ABOUT ═══════════ -->
@@ -930,7 +1148,7 @@ footer {
         <div class="section-eyebrow"><span>About the Firm</span></div>
         <h2 class="display">Built on <em>Expertise</em>.<br>Grounded in<br><em>Accountability.</em></h2>
         <div class="about-body" style="margin-top:28px;">
-          <p>PBC Capital Advisors LLC is a boutique investment bank headquartered in <strong>Palm Beach Gardens, Florida</strong>, founded by two CPAs with combined decades of experience across Big Four accounting, Fortune 500 corporate development, and global private equity.</p>
+          <p>PBG Capital Advisors LLC is a boutique investment bank headquartered in <strong>Palm Beach Gardens, Florida</strong>, founded by two CPAs with combined decades of experience across Big Four accounting, Fortune 500 corporate development, and global private equity.</p>
           <p>We specialize in <strong>sell-side and buy-side M&A advisory</strong> for middle-market businesses in the Industrials, Consumer Products, Healthcare, Technology, and Business Services sectors.</p>
           <p>Our accounting and tax foundation means we don't just run a process — we understand the numbers at a fundamental level and use that to protect and maximize value for our clients at every step.</p>
         </div>
@@ -1020,7 +1238,7 @@ footer {
       <div class="reveal">
         <div class="edge-callout">
           <p class="callout-quote">The difference between a good deal and a great one usually comes down to who truly understands the numbers — and how to defend them.</p>
-          <div class="callout-attr">PBC Capital Advisors — Our Philosophy</div>
+          <div class="callout-attr">PBG Capital Advisors — Our Philosophy</div>
 
           <div class="creds-block">
             <div class="creds-title">Founder Credentials</div>
@@ -1073,7 +1291,7 @@ footer {
         <div class="section-eyebrow"><span>What We Do</span></div>
         <h2 class="display">Advisory <em>Services</em></h2>
       </div>
-      <p>From strategic preparation through close, PBC Capital guides clients through every dimension of a transaction — whether you're building, buying, or transitioning.</p>
+      <p>From strategic preparation through close, PBG Capital guides clients through every dimension of a transaction — whether you're building, buying, or transitioning.</p>
     </div>
 
     <div class="services-cards reveal">
@@ -1177,7 +1395,7 @@ footer {
       <div class="proc-step">
         <div class="proc-step-n">Phase 01</div>
         <h4>Preparation &amp; Valuation</h4>
-        <p>Engage PBC Capital, sign advisory agreement, gather and normalize financials, calculate valuation range, and review tax structure for the exit.</p>
+        <p>Engage PBG Capital, sign advisory agreement, gather and normalize financials, calculate valuation range, and review tax structure for the exit.</p>
       </div>
       <div class="proc-step">
         <div class="proc-step-n">Phase 02</div>
@@ -1205,7 +1423,7 @@ footer {
       <div class="proc-step">
         <div class="proc-step-n">Phase 02</div>
         <h4>Target Identification</h4>
-        <p>Proprietary sourcing via PBC Capital's network, direct outreach to off-market targets, and management introductions under confidentiality.</p>
+        <p>Proprietary sourcing via PBG Capital's network, direct outreach to off-market targets, and management introductions under confidentiality.</p>
       </div>
       <div class="proc-step">
         <div class="proc-step-n">Phase 03</div>
@@ -1297,6 +1515,80 @@ footer {
 </section>
 </div>
 
+<!-- ═══════════ TRACK RECORD ═══════════ -->
+<div id="page-track-record" class="page">
+<section id="track-record">
+  <div class="section-wrap">
+    <div class="tr-header reveal">
+      <div class="section-eyebrow"><span>Track Record</span></div>
+      <h2 class="display">Selected <em>Transactions</em></h2>
+      <p>A representative sample of transactions our principals have completed across sell-side, buy-side, and capital advisory engagements. Deal values reflect transaction size at close.</p>
+    </div>
+
+    <div class="tomb-grid reveal">
+      <div class="tomb-card">
+        <div class="tomb-top"><div class="tomb-icon">📐</div><div class="tomb-tag">Sell-Side</div></div>
+        <div class="tomb-sector">Professional Services</div>
+        <div class="tomb-name">Architectural Firm</div>
+        <div class="tomb-value">$40M</div>
+        <div class="tomb-value-label">Sales</div>
+        <div class="tomb-desc">Top-3 firm in Miami. Sold to a private equity buyer.</div>
+      </div>
+      <div class="tomb-card">
+        <div class="tomb-top"><div class="tomb-icon">🚗</div><div class="tomb-tag">Sell-Side</div></div>
+        <div class="tomb-sector">Automotive Retail</div>
+        <div class="tomb-name">Used-Car Retailer</div>
+        <div class="tomb-value">$1.2B</div>
+        <div class="tomb-value-label">Sales</div>
+        <div class="tomb-desc">Sold to a top-10 private equity firm.</div>
+      </div>
+      <div class="tomb-card">
+        <div class="tomb-top"><div class="tomb-icon">🔧</div><div class="tomb-tag">Sell-Side</div></div>
+        <div class="tomb-sector">Specialty Contracting</div>
+        <div class="tomb-name">Mechanical Contractor</div>
+        <div class="tomb-value">$60M</div>
+        <div class="tomb-value-label">Sales</div>
+        <div class="tomb-desc">Commercial HVAC, electrical &amp; security services firm.</div>
+      </div>
+      <div class="tomb-card">
+        <div class="tomb-top"><div class="tomb-icon">🚆</div><div class="tomb-tag">Buy-Side</div></div>
+        <div class="tomb-sector">Industrials</div>
+        <div class="tomb-name">Rail Car Products</div>
+        <div class="tomb-value">$110M</div>
+        <div class="tomb-value-label">Revenue</div>
+        <div class="tomb-desc">Purchased from a German-based private equity owner.</div>
+      </div>
+      <div class="tomb-card">
+        <div class="tomb-top"><div class="tomb-icon">⚙️</div><div class="tomb-tag">M&amp;A</div></div>
+        <div class="tomb-sector">Advanced Materials</div>
+        <div class="tomb-name">Automotive Components</div>
+        <div class="tomb-value">$310M</div>
+        <div class="tomb-value-label">Revenue</div>
+        <div class="tomb-desc">High-performance materials for the automotive industry.</div>
+      </div>
+      <div class="tomb-card">
+        <div class="tomb-top"><div class="tomb-icon">🌡️</div><div class="tomb-tag">M&amp;A</div></div>
+        <div class="tomb-sector">Building Technology</div>
+        <div class="tomb-name">HVAC Controls</div>
+        <div class="tomb-value">$40M</div>
+        <div class="tomb-value-label">Revenue</div>
+        <div class="tomb-desc">Hotel-room occupancy &amp; energy-efficiency controls.</div>
+      </div>
+    </div>
+
+    <div class="qoe-band reveal">
+      <div class="qoe-num">300+</div>
+      <div class="qoe-text">
+        <h3>Quality of Earnings reports completed</h3>
+        <p>Beyond closed transactions, our team has delivered more than 300 Quality of Earnings (QOE) engagements over the last five years — the same financial rigor we bring to every deal we advise.</p>
+      </div>
+    </div>
+
+    <p class="tr-note">Representative transactions completed by our principals over the course of their careers, including engagements at prior firms. Shown for illustrative purposes; individual results vary.</p>
+  </div>
+</section>
+</div>
+
 <!-- ═══════════ TEAM ═══════════ -->
 <div id="page-team" class="page">
 <section id="team">
@@ -1304,7 +1596,7 @@ footer {
     <div class="team-header reveal">
       <div class="section-eyebrow"><span>Our Team</span></div>
       <h2 class="display">The <em>Founders</em></h2>
-      <p>Every client engagement at PBC Capital is led personally by one of our two founders. No junior bankers. No hand-offs.</p>
+      <p>Every client engagement at PBG Capital is led personally by one of our two founders. No junior bankers. No hand-offs.</p>
     </div>
 
     <div class="team-grid reveal">
@@ -1354,7 +1646,7 @@ footer {
           <span class="cred-chip">25 Yrs Experience</span>
         </div>
         <p class="tc-bio">
-          Adam is a Florida-licensed CPA with 25 years of experience in tax accounting and consulting. His deep expertise in transaction taxation is one of PBC Capital's most distinctive advantages — bringing a level of after-tax rigor to M&A advisory that most boutique investment banks cannot offer. Adam leads all tax structure analysis for deals, advising clients on asset vs. stock elections, installment sale planning, QSBS eligibility, rollover equity implications, and entity restructuring prior to sale.
+          Adam is a Florida-licensed CPA with 25 years of experience in tax accounting and consulting. His deep expertise in transaction taxation is one of PBG Capital's most distinctive advantages — bringing a level of after-tax rigor to M&A advisory that most boutique investment banks cannot offer. Adam leads all tax structure analysis for deals, advising clients on asset vs. stock elections, installment sale planning, QSBS eligibility, rollover equity implications, and entity restructuring prior to sale.
         </p>
         <div class="tc-career">
           <div class="career-label">Areas of Expertise</div>
@@ -1404,7 +1696,7 @@ footer {
             <div class="ci-icon">✉</div>
             <div>
               <div class="ci-label">Email</div>
-              <div class="ci-value">info@pbccadvisors.com</div>
+              <div class="ci-value">info@pbgcadvisors.com</div>
             </div>
           </div>
           <div class="ci-item">
@@ -1417,9 +1709,9 @@ footer {
         </div>
       </div>
 
-      <form class="contact-form reveal" action="https://formsubmit.co/info@pbccadvisors.com" method="POST">
+      <form class="contact-form reveal" action="https://formsubmit.co/info@pbgcadvisors.com" method="POST">
         <!-- FormSubmit config -->
-        <input type="hidden" name="_subject" value="New Consultation Request — PBC Capital Advisors">
+        <input type="hidden" name="_subject" value="New Consultation Request — PBG Capital Advisors">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
 
@@ -1475,7 +1767,7 @@ footer {
           <textarea name="message" placeholder="Brief description of your business and what you're hoping to accomplish..."></textarea>
         </div>
         <button type="submit" class="form-submit">Request Confidential Consultation</button>
-        <p class="confidential-note">All submissions are confidential. We will respond within one business day. PBC Capital Advisors LLC does not share your information with third parties without your consent.</p>
+        <p class="confidential-note">All submissions are confidential. We will respond within one business day. PBG Capital Advisors LLC does not share your information with third parties without your consent.</p>
       </form>
     </div>
   </div>
@@ -1486,16 +1778,7 @@ footer {
 <footer>
   <div class="footer-brand">
     <div class="nav-brand" onclick="showPage('home')">
-      <div class="nav-logo-stacked">
-        <div class="nav-logo-top">
-          <div class="nav-logo-bars">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="nav-logo-pbc">PBC</div>
-        </div>
-        <div class="nav-logo-rule"></div>
-        <div class="nav-logo-sub">Capital Advisors LLC</div>
-      </div>
+      <img class="brand-logo" src="PBG_Logo_Primary_Reversed_Transparent.png" alt="PBG Capital Advisors">
     </div>
     <div style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:6px;font-weight:300;">
       2000 PGA Blvd, Suite 4440 · Palm Beach Gardens, FL 33408
@@ -1507,12 +1790,13 @@ footer {
     <a onclick="showPage('services')">Services</a>
     <a onclick="showPage('process')">Process</a>
     <a onclick="showPage('sectors')">Sectors</a>
+    <a onclick="showPage('track-record')">Track Record</a>
     <a onclick="showPage('team')">Team</a>
     <a onclick="showPage('contact')">Contact</a>
   </div>
 
   <div class="footer-legal">
-    &copy; 2025 PBC Capital Advisors LLC. All rights reserved.<br>
+    &copy; 2025 PBG Capital Advisors LLC. All rights reserved.<br>
     Securities transactions conducted through a registered broker-dealer. FINRA Series 7 &amp; 79 Licensed. Member FINRA / SIPC.<br>
     <span style="color:rgba(255,255,255,0.12);">This website is for informational purposes only and does not constitute a solicitation.</span>
   </div>
@@ -1541,6 +1825,8 @@ function showPage(id) {
   window.scrollTo(0, 0);
   // Re-run reveal animations for newly visible elements
   triggerReveals();
+  // Re-layout the home carousel once it's visible again
+  if (id === 'home') layoutDeals();
 }
 
 // Reveal on scroll
@@ -1567,6 +1853,67 @@ function switchTab(event, id) {
   event.currentTarget.classList.add('active');
   document.getElementById('tab-' + id).classList.add('active');
 }
+
+// ─── Home: Selected Transactions carousel ───
+const DEALS_GAP = 24;
+let dealIndex = 0, dealTotal = 0, dealTimer = null;
+
+function dealsPerView() {
+  const w = window.innerWidth;
+  if (w <= 700) return 1;
+  if (w <= 1024) return 2;
+  return 3;
+}
+function layoutDeals() {
+  const track = document.getElementById('dealsTrack');
+  if (!track) return;
+  const vp = track.parentElement.clientWidth;
+  if (vp <= 0) return; // page hidden — skip until visible
+  const per = dealsPerView();
+  const basis = (vp - DEALS_GAP * (per - 1)) / per;
+  [...track.children].forEach(c => { c.style.flex = '0 0 ' + basis + 'px'; });
+  const maxI = Math.max(0, dealTotal - per);
+  if (dealIndex > maxI) dealIndex = maxI;
+  track.style.transform = 'translateX(' + (-(dealIndex * (basis + DEALS_GAP))) + 'px)';
+  renderDealDots(maxI);
+}
+function moveDeals(dir) {
+  const per = dealsPerView();
+  const maxI = Math.max(0, dealTotal - per);
+  dealIndex += dir;
+  if (dealIndex > maxI) dealIndex = 0;
+  if (dealIndex < 0) dealIndex = maxI;
+  layoutDeals();
+  restartDealTimer();
+}
+function renderDealDots(maxI) {
+  const dots = document.getElementById('dealsDots');
+  if (!dots) return;
+  dots.innerHTML = '';
+  for (let i = 0; i <= maxI; i++) {
+    const b = document.createElement('button');
+    b.className = 'deal-dot' + (i === dealIndex ? ' active' : '');
+    b.setAttribute('aria-label', 'Go to transaction group ' + (i + 1));
+    b.onclick = () => { dealIndex = i; layoutDeals(); restartDealTimer(); };
+    dots.appendChild(b);
+  }
+}
+function restartDealTimer() {
+  clearInterval(dealTimer);
+  dealTimer = setInterval(() => moveDeals(1), 4500);
+}
+function initDeals() {
+  const track = document.getElementById('dealsTrack');
+  if (!track) return;
+  dealTotal = track.children.length;
+  layoutDeals();
+  restartDealTimer();
+  window.addEventListener('resize', layoutDeals);
+  const vpEl = track.parentElement;
+  vpEl.addEventListener('mouseenter', () => clearInterval(dealTimer));
+  vpEl.addEventListener('mouseleave', restartDealTimer);
+}
+initDeals();
 </script>
 </body>
 </html>
